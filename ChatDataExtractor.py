@@ -1,6 +1,3 @@
-
-from datetime import date
-from tkinter.tix import COLUMN
 from Chat import Chat
 
 

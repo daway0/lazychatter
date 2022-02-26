@@ -1,5 +1,3 @@
-
-
 class Student:
     def __init__(self, name) -> None:
         self.__name = name
@@ -9,7 +7,6 @@ class Student:
         return self.__name
 
     def add_message(self, text, class_date):
-
         if not class_date in self.__messages.keys():
             self.__messages[class_date] = []
 
@@ -20,8 +17,7 @@ class Student:
         sorted_data = sorted(data_items)
         all_messages = []
 
-        for key, chat in sorted_data:
-
+        for key, _ in sorted_data:
             all_messages.append(
                 f'\n[{key}][chats: {len(self.__messages[key])}] \n\n')
             for line in self.__messages[key]:
@@ -36,5 +32,5 @@ class Student:
     def all_chats_number(self):
         number = 0
         for key in self.__messages:
-            number += len (self.__messages[key])
-        
+            number += len(self.__messages[key])
+        return number

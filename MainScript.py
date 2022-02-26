@@ -1,6 +1,3 @@
-
-
-
 from Chat import Chat
 from Export import DataExport
 from DirectoryManager import DirectoryManager
@@ -10,7 +7,6 @@ import Constant
 
 
 def categorize_all_chat_messages(files: list, professor: Professor):
-
     for file_name in files:
         chatinfo = Chat(file_name)
         chat = ChatMesseageCategorizer(chatinfo, professor)
