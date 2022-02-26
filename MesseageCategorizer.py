@@ -1,39 +1,27 @@
-from cgitb import text
+
 from Chat import Chat
 from ChatDataExtractor import ChatDataExtractor
+from Professor import Professor
 from Student import Student
 
 
-class MesseageCategorizer:
+class ChatMesseageCategorizer:
 
-    def __init__(self, chat: Chat) -> None:
-        self.__chat_file_name = chat.get_file_name()
-        self.__students = {}
-        self.__create_time = chat.date()
-
-    def update_student_name_set(self):
-        pass
+    def __init__(self, chat: Chat, professor: Professor) -> None:
+        self.__chat = chat
+        self.__chat_professor = professor
+        
 
     def categorize(self):
-        with open(self.__chat_file_name, 'r', encoding='utf-8') as chatfile:
-            for line in chatfile:
+        for line in self.__chat.chat_lines:
 
-                student_name = ChatDataExtractor.extract_message_author(line)
+            student_name = ChatDataExtractor.message_author(line)
 
-                if not (student_name in self.__students.keys()):
-                    self.__students[student_name] = Student(student_name)
+            if not student_name in self.__chat_professor.student_name_list():
+                student = Student(student_name)
+                self.__chat_professor.add_student(student)
 
-                
-                text = ChatDataExtractor.extract_time_text(line)
-                
-                self.__students[student_name].add_message(text, self.__create_time)
-    def students(self):
-        return self.__students
+            text = ChatDataExtractor.text_with_time(line)
 
-
-chat1  = Chat('bbb-سیستم های عامل[public-chat]_2022-2-24_10-49.txt')
-mo1= MesseageCategorizer(chat1)
-mo1.categorize()
-
-for student in mo1.students().values():
-    student.export_chats()
+            self.__chat_professor.get_student(student_name).add_message(
+                text, self.__chat.class_date())
