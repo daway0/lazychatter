@@ -25,7 +25,7 @@ def main():
     files = DirectoryManager.import_chat_files()
 
     if not files:
-        return
+        raise Exception()
 
     professor = Professor()
     categorize_all_chat_messages(files, professor)
