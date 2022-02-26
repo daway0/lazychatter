@@ -12,7 +12,7 @@ class Student:
 
         self.__messages[class_date].append(text)
 
-    def export_chats(self):
+    def export_chats(self) -> None:
         data_items = self.__messages.items()
         sorted_data = sorted(data_items)
         all_messages = []
@@ -29,7 +29,7 @@ class Student:
             return len(self.__messages[date])
         return 0
 
-    def all_chats_number(self):
+    def number_all_chats(self) -> int:
         number = 0
         for key in self.__messages:
             number += len(self.__messages[key])

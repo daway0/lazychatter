@@ -10,7 +10,7 @@ class ChatMesseageCategorizer:
         self.__chat = chat
         self.__chat_professor = professor
 
-    def categorize(self):
+    def categorize(self) -> None:
         for line in self.__chat.chat_lines:
             student_name = ChatDataExtractor.message_author(line)
             

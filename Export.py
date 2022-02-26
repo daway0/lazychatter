@@ -5,7 +5,7 @@ import xlsxwriter
 
 class DataExport:
     @staticmethod
-    def student_chats(directory: str, professor: Professor):
+    def student_chats(directory: str, professor: Professor) -> None:
         for student_name in professor.student_name_list():
             student = professor.get_student(student_name)
             with open(f'./{directory}/{student_name}.txt', 'w', encoding='utf-8') as file:
@@ -13,11 +13,11 @@ class DataExport:
                     file.write(line)
 
     @staticmethod
-    def student_charts(directory):
+    def student_charts(directory: str, professor: Professor):
         pass
 
     @staticmethod
-    def overall_result(directory, files, professor: Professor):
+    def overall_result(directory, files, professor: Professor) -> None:
         workbook = xlsxwriter.Workbook('overall_result.xlsx')
         worksheet = workbook.add_worksheet()
         # column

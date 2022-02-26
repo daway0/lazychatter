@@ -6,15 +6,14 @@ from Professor import Professor
 import Constant
 
 
-def categorize_all_chat_messages(files: list, professor: Professor):
+def categorize_all_chat_messages(files: list, professor: Professor) -> None:
     for file_name in files:
         chatinfo = Chat(file_name)
         chat = ChatMesseageCategorizer(chatinfo, professor)
         chat.categorize()
 
 
-def main():
-
+def main() -> None:
     DirectoryManager.make_directories([Constant.Directory.STUDENT_CHAT_DIRECTORY,
                                        Constant.Directory.STUDENT_CHART_DIRECTORY,
                                        Constant.Directory.OVERALL_RESULT])
