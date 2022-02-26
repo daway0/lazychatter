@@ -27,3 +27,14 @@ class Student:
             for line in self.__messages[key]:
                 all_messages.append(f'{line}')
         return all_messages
+
+    def chats_in_date(self, date: str) -> int:
+        if date in self.__messages.keys():
+            return len(self.__messages[date])
+        return 0
+
+    def all_chats_number(self):
+        number = 0
+        for key in self.__messages:
+            number += len (self.__messages[key])
+        

@@ -2,7 +2,7 @@
 
 
 from Chat import Chat
-from DataExtraction import DataExtraction
+from Export import DataExport
 from DirectoryManager import DirectoryManager
 from MesseageCategorizer import ChatMesseageCategorizer
 from Professor import Professor
@@ -29,12 +29,12 @@ def main():
 
     professor = Professor()
     categorize_all_chat_messages(files, professor)
-    DataExtraction.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
+    DataExport.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
                                  professor)
+    DataExport.overall_result(Constant.Directory.OVERALL_RESULT, files, professor)
 
-
+ 
 if __name__ == '__main__':
-    try:
+    
         main()
-    except:
-        print('SCRIPT CRASHED!')
+    

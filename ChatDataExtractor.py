@@ -1,4 +1,6 @@
 
+from datetime import date
+from tkinter.tix import COLUMN
 from Chat import Chat
 
 
@@ -36,3 +38,21 @@ class ChatDataExtractor():
         time = ChatDataExtractor.__message_time(line)
         message = ChatDataExtractor.__message_text(line)
         return f'[{time}] {message}'
+
+    @staticmethod
+    def class_dates(files: str) -> list:
+        dates = []
+
+        for file in files:
+            chatinfo = Chat(file)
+            dates.append(chatinfo.class_date())
+
+        dates.sort()
+        column_number_date_dict = {}
+
+        col = 1
+        for date in dates:
+            column_number_date_dict[col] = date
+            col += 1
+            #{1:'2022-6-6'}
+        return column_number_date_dict
