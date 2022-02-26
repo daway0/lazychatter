@@ -18,11 +18,12 @@ class Student:
     def export_chats(self):
         data_items = self.__messages.items()
         sorted_data = sorted(data_items)
+        all_messages = []
 
-        with open(f'./student_chat/{self.__name}.txt', 'w', encoding='utf-8') as file:
-            for key, chat in sorted_data:
+        for key, chat in sorted_data:
 
-                file.write(
-                    f'\n[{key}][chats: {len(self.__messages[key])}] \n\n')
-                for line in self.__messages[key]:
-                    file.write(f'{line}')
+            all_messages.append(
+                f'\n[{key}][chats: {len(self.__messages[key])}] \n\n')
+            for line in self.__messages[key]:
+                all_messages.append(f'{line}')
+        return all_messages
