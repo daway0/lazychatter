@@ -19,8 +19,8 @@ def main() -> None:
                                        Constant.Directory.OVERALL_RESULT])
     files = DirectoryManager.import_chat_files()
 
-    if not files:
-        raise Exception()
+    if files == []:
+        raise Exception('Chat files not found!')
 
     professor = Professor()
     categorize_all_chat_messages(files, professor)
@@ -30,6 +30,8 @@ def main() -> None:
 
  
 if __name__ == '__main__':
-    
+    try:
         main()
+    except:
+        print ('script crashed')
     
