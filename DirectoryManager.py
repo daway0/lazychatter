@@ -1,6 +1,5 @@
 import os
 from time import sleep
-from turtle import delay
 
 
 class DirectoryManager:
@@ -47,7 +46,7 @@ class DirectoryManager:
 
         if ans.lower() == 'yes':
             os.system('cls')
-            delay(0.5)
+            sleep(0.5)
             print('waiting...')
             return chat_files
         return False
