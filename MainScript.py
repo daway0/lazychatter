@@ -8,9 +8,9 @@ import Constant
 
 def categorize_all_chat_messages(files: list, professor: Professor) -> None:
     for file_name in files:
-        chatinfo = Chat(file_name)
-        chat = ChatMesseageCategorizer(chatinfo, professor)
-        chat.categorize()
+        chat = Chat(file_name)
+        ChatMesseageCategorizer(chat, professor).categorize()
+        
 
 
 def main() -> None:
