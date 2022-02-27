@@ -19,32 +19,18 @@ class DirectoryManager:
         os.system('cls')
 
     @staticmethod
-    def import_chat_files():
-
+    def import_chat_files() -> list:
         files = os.listdir()
         chat_files = []
 
         for file in files:
             if not '[public-chat]' in file:
                 continue
-
             chat_files.append(file)
             print(file)
             sleep(0.01)
+        return chat_files
 
-        if len(chat_files) == 0:
-            print('file not found !')
-            sleep(1)
-            os.system('cls')
-            return False
+        
 
-        print('\n')
-        ans = input(
-            f'{len (chat_files)} chat files collected, do you confirm it? (YES/NO)')
-
-        if ans.lower() == 'yes':
-            os.system('cls')
-            sleep(0.5)
-            print('waiting...')
-            return chat_files
-        return False
+        
