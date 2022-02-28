@@ -25,7 +25,7 @@ class DataExport:
         for name in name_list:
             reshaped_text = arabic_reshaper.reshape(name)
             artext = get_display(reshaped_text)
-            reshaped_names_list.append(artext)
+            reshaped_names_list.append(f'{artext} {professor.get_student(name).number_all_chats()}' )
 
         number_chats_list = []
         all_chats = 0
