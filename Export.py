@@ -18,7 +18,7 @@ class DataExport:
 
     @staticmethod
     def overall_result(directory, files, professor: Professor) -> None:
-        workbook = xlsxwriter.Workbook('overall_result.xlsx')
+        workbook = xlsxwriter.Workbook(f'./{directory}/overall_result.xlsx')
         worksheet = workbook.add_worksheet()
         # column
         dates_dict = ChatDataExtractor.class_dates(files)
