@@ -15,8 +15,7 @@ def categorize_all_chat_messages(files: list, professor: Professor) -> None:
 
 def main() -> None:
     DirectoryManager.make_directories([Constant.Directory.STUDENT_CHAT_DIRECTORY,
-                                       Constant.Directory.STUDENT_CHART_DIRECTORY,
-                                       Constant.Directory.OVERALL_RESULT])
+                                       Constant.Directory.STUDENT_CHART_DIRECTORY])
     files = DirectoryManager.import_chat_files()
 
     if files == []:
