@@ -1,5 +1,4 @@
 import os
-from time import sleep
 
 
 class DirectoryManager:
@@ -10,12 +9,10 @@ class DirectoryManager:
         for name in directories_name_list:
             try:
                 os.mkdir(f'./{name}')
-                print(f'{name} Created!')
-                sleep(0.5)
+
             except:
-                print(f'{name} is already created! ')
-                sleep(0.5)
-        sleep(1)
+                pass
+
         os.system('cls')
 
     @staticmethod
@@ -27,10 +24,5 @@ class DirectoryManager:
             if not '[public-chat]' in file:
                 continue
             chat_files.append(file)
-            print(file)
-            sleep(0.01)
+
         return chat_files
-
-        
-
-        
