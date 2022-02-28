@@ -17,7 +17,6 @@ class DataExport:
     @staticmethod
     def pieplot(professor: Professor):
         import matplotlib.pyplot as plt
-        import matplotlib
         from bidi.algorithm import get_display
         import arabic_reshaper
 
@@ -29,11 +28,14 @@ class DataExport:
             reshaped_names_list.append(artext)
 
         number_chats_list = []
+        all_chats = 0
         for name in professor.student_name_list():
             number_student_chats = professor.get_student(
                 name).number_all_chats()
+            all_chats += number_student_chats
             number_chats_list.append(number_student_chats)
 
+        plt.xlabel((f'{all_chats} messages '))
         plt.pie(number_chats_list, labels=reshaped_names_list,
-                radius=1.4, autopct='%1.1f%%', pctdistance=0.8)
+                radius=1.4, autopct='%1.1f%%', pctdistance=0.85, labeldistance=1.1)
         plt.show()
