@@ -1,13 +1,10 @@
-
-
 class Chat:
     def __init__(self, file: str) -> None:
         self.__file_name = file
         self.chat_lines = []
         self.extract_chat()
 
-    def extract_chat(self):
-
+    def extract_chat(self)-> None:
         with open(self.__file_name, 'r', encoding='utf-8') as chatfile:
             for line in chatfile:
                 self.chat_lines.append(line)

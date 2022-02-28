@@ -1,40 +1,36 @@
-
-
-
 from Chat import Chat
-from DataExtraction import DataExtraction
+from Export import DataExport
 from DirectoryManager import DirectoryManager
 from MesseageCategorizer import ChatMesseageCategorizer
 from Professor import Professor
 import Constant
 
 
-def categorize_all_chat_messages(files: list, professor: Professor):
-
+def categorize_all_chat_messages(files: list, professor: Professor) -> None:
     for file_name in files:
-        chatinfo = Chat(file_name)
-        chat = ChatMesseageCategorizer(chatinfo, professor)
-        chat.categorize()
+        chat = Chat(file_name)
+        ChatMesseageCategorizer(chat, professor).categorize()
+        
 
 
-def main():
-
+def main() -> None:
     DirectoryManager.make_directories([Constant.Directory.STUDENT_CHAT_DIRECTORY,
-                                       Constant.Directory.STUDENT_CHART_DIRECTORY,
-                                       Constant.Directory.OVERALL_RESULT])
+                                       Constant.Directory.STUDENT_CHART_DIRECTORY])
     files = DirectoryManager.import_chat_files()
 
-    if not files:
-        raise Exception()
+    if files == []:
+        raise Exception('Chat files not found!')
 
     professor = Professor()
     categorize_all_chat_messages(files, professor)
-    DataExtraction.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
+    DataExport.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
                                  professor)
+    DataExport.pieplot(professor)
 
-
+ 
 if __name__ == '__main__':
     try:
         main()
     except:
-        print('SCRIPT CRASHED!')
+        print ('script crashed')
+    
