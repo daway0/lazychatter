@@ -26,7 +26,7 @@ def main() -> None:
     categorize_all_chat_messages(files, professor)
     DataExport.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
                                  professor)
-    DataExport.overall_result(Constant.Directory.OVERALL_RESULT, files, professor)
+    DataExport.pieplot(professor)
 
  
 if __name__ == '__main__':
