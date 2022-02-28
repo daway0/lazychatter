@@ -1,6 +1,4 @@
-from ChatDataExtractor import ChatDataExtractor
 from Professor import Professor
-
 
 
 class DataExport:
@@ -39,4 +37,3 @@ class DataExport:
         plt.pie(number_chats_list, labels=reshaped_names_list,
                 radius=1.4, autopct='%1.1f%%', pctdistance=0.8)
         plt.show()
-
