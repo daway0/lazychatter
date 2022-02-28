@@ -1,6 +1,6 @@
 from ChatDataExtractor import ChatDataExtractor
 from Professor import Professor
-import xlsxwriter
+
 
 
 class DataExport:
@@ -40,22 +40,3 @@ class DataExport:
                 radius=1.4, autopct='%1.1f%%', pctdistance=0.8)
         plt.show()
 
-    @staticmethod
-    def overall_result(directory, files, professor: Professor) -> None:
-        workbook = xlsxwriter.Workbook(f'./{directory}/overall_result.xlsx')
-        worksheet = workbook.add_worksheet()
-        # column
-        dates_dict = ChatDataExtractor.class_dates(files)
-        for col in dates_dict:
-            worksheet.write(0, col, dates_dict[col])
-
-            # row
-            row = 1
-            for student_name in professor.student_name_list():
-                student = professor.get_student(student_name)
-                worksheet.write(row,0, student_name)
-                worksheet.write(
-                    row, col, student.chats_in_date(dates_dict[col]))
-                row += 1
-
-        workbook.close()
