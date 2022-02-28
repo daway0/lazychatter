@@ -10,7 +10,6 @@ def categorize_all_chat_messages(files: list, professor: Professor) -> None:
     for file_name in files:
         chat = Chat(file_name)
         ChatMesseageCategorizer(chat, professor).categorize()
-        
 
 
 def main() -> None:
@@ -23,14 +22,14 @@ def main() -> None:
 
     professor = Professor()
     categorize_all_chat_messages(files, professor)
-    DataExport.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY, 
-                                 professor)
+    DataExport.student_chats(Constant.Directory.STUDENT_CHAT_DIRECTORY,
+                             professor)
     DataExport.pieplot(professor)
+    DataExport.hbarplot(professor)
 
- 
+
 if __name__ == '__main__':
     try:
         main()
     except:
-        print ('script crashed')
-    
+        print('script crashed')
