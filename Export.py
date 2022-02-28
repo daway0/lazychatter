@@ -54,6 +54,7 @@ class DataExport:
             plt_names.append(name)
             plt_chats.append(chats)
         
+        plt.xlabel(f'{all_chats} messages')
         plt.barh(plt_names, plt_chats)
         plt.show()
 
