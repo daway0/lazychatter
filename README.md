@@ -1,7 +1,7 @@
 # Lazy Chatter Detector
 
 It can detect Lazy Chatters.
-
+!(Bar Plot)[https://drive.google.com/file/d/1ChVoUs4YNk_9iaDU9IfnurhKN864GXn_/view?usp=sharing]
 
 # Quick Start
 
@@ -19,6 +19,7 @@ It can detect Lazy Chatters.
 
 1. change name of chats that you download from daan plattrom
 2. put different types of chat file together, this does not cause error, but it is not logically justified
+
    `bbb-تاریخ امامت[public-chat]_2022-2-23_17-52.txt`
 
    `bbb-تاریخ امامت[public-chat]_2022-2-30_17-52.txt`
