@@ -17,7 +17,7 @@ def main() -> None:
                                        Constant.Directory.STUDENT_CHART_DIRECTORY])
     files = DirectoryManager.import_chat_files()
 
-    if files == []:
+    if not files:
         raise Exception('Chat files not found!')
 
     professor = Professor()
