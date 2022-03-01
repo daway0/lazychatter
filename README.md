@@ -1,1 +1,1 @@
-# lazy_chatter_detector
+# Lazy Chatter Detector
