@@ -12,6 +12,4 @@ class Professor:
         return self.__students[student_name]
 
     def student_name_list(self):
-        """... -> dict_keys
-        """
         return self.__students.keys()
