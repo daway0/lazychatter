@@ -1,8 +1,9 @@
 # Lazy Chatter Detector
 
 It can detect Lazy Chatters.
-!(Bar Plot)[https://s23.picofile.com/file/8447934734/tarikh_e_emamat_barplot.png]
-!(Pie Plot)[https://s23.picofile.com/file/8447934750/tarikh_e_emamat_pieplot.png]
+
+![Bar Plot](https://s23.picofile.com/file/8447934734/tarikh_e_emamat_barplot.png)
+![Pie Plot](https://s23.picofile.com/file/8447934750/tarikh_e_emamat_pieplot.png)
 
 # Quick Start
 
