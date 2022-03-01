@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+from bidi.algorithm import get_display
+import arabic_reshaper
 from Professor import Professor
 
 
@@ -21,10 +24,6 @@ class DataExport:
 
     @staticmethod
     def hbarplot(professor: Professor):
-        import matplotlib.pyplot as plt
-        from bidi.algorithm import get_display
-        import arabic_reshaper
-
         name_list = professor.student_name_list()
         reshaped_names_list = []
 
@@ -41,29 +40,26 @@ class DataExport:
                 name).number_all_chats()
             all_chats += number_student_chats
             number_chats_list.append(number_student_chats)
-        
+
         # sorting data by number of chat messages
-        # 
+        #
         desorted_list_tuple = []
         for i in range(len(number_chats_list)):
-            desorted_list_tuple.append((reshaped_names_list[i], number_chats_list[i]))
+            desorted_list_tuple.append(
+                (reshaped_names_list[i], number_chats_list[i]))
         sorted_list_tuple = DataExport.sort_tuple(desorted_list_tuple)
         plt_names = []
         plt_chats = []
         for name, chats in sorted_list_tuple:
             plt_names.append(name)
             plt_chats.append(chats)
-        
+
         plt.xlabel(f'{all_chats} messages')
         plt.barh(plt_names, plt_chats)
         plt.show()
 
     @staticmethod
     def pieplot(professor: Professor):
-        import matplotlib.pyplot as plt
-        from bidi.algorithm import get_display
-        import arabic_reshaper
-
         name_list = professor.student_name_list()
         reshaped_names_list = []
         for name in name_list:
