@@ -8,19 +8,19 @@ It can detect Lazy Chatters.
 # Quick Start
 
 1. Install script dependencies: `pip install -r requirements.txt`
-2. Put **chat files (or just 1 one chat file)** in `lazy_chatter_detector` directory (next to other .py files)
+2. Put **chat files (or a chat)** in `lazy_chatter_detector` directory (next to other `.py` files)
 3. Run `MainScript.py`
 
 # Usage
 
-**Plots:** After executing MainScript.py, script will show you **pie** and **bar** plots in a row (with matplotlib GUI).
+**Plots:** After executing `MainScript.py`, script will show you a **pie** and a **bar** plots in a row (with matplotlib GUI).
 
 **Student Chats:** All student chats store in `./std_chats` in `.txt` format.
 
 # Do NOT...
 
-1. change name of chats that you download from daan plattrom
-2. put different types of chat file together, this does not cause error, but it is not logically justified
+1. change name of the chats that you download from daan platform
+2. put different types of chat file together, this does not cause any error, but it is not logically correct
 
    `bbb-تاریخ امامت[public-chat]_2022-2-23_17-52.txt`
 
