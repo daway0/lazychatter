@@ -12,6 +12,8 @@ class ChatMesseageCategorizer:
 
     def categorize(self) -> None:
         for line in self.__chat.chat_lines:
+            if line == '' or line == '\n':
+                continue
             
             if ChatDataExtractor.is_chatline_valid(line):
                 student_name = ChatDataExtractor.message_author(line)
