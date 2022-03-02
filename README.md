@@ -1,12 +1,13 @@
 # Lazy Chatter Detector
 
-It can detect Lazy Chatters.
+**It can detect Lazy Chatters** 
+based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
 
 ![Bar Plot](https://s23.picofile.com/file/8447934734/tarikh_e_emamat_barplot.png)
 ![Pie Plot](https://s23.picofile.com/file/8447934750/tarikh_e_emamat_pieplot.png)
 
 # Quick Start
-
+0. [Watch the guide on YouTube](https://youtu.be/pPJ-NBAdNGA)
 1. Install script dependencies: `pip install -r requirements.txt`
 2. Put **chat files (or a chat)** in `lazy_chatter_detector` directory (next to other `.py` files)
 3. Run `MainScript.py`
