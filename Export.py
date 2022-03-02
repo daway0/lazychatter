@@ -54,7 +54,7 @@ class DataExport:
             plt_names.append(name)
             plt_chats.append(chats)
 
-        plt.xlabel(f'{all_chats} messages')
+        plt.xlabel(f'{all_chats} msgs, {len(reshaped_names_list)} chatters')
         plt.barh(plt_names, plt_chats)
         plt.show()
 
@@ -76,7 +76,7 @@ class DataExport:
             all_chats += number_student_chats
             number_chats_list.append(number_student_chats)
 
-        plt.xlabel((f'{all_chats} messages '))
+        plt.xlabel((f'{all_chats} msgs, {len(reshaped_names_list)} chatters '))
         plt.pie(number_chats_list, labels=reshaped_names_list,
                 radius=1.4, autopct='%1.1f%%', pctdistance=0.85, labeldistance=1.1)
         plt.show()
