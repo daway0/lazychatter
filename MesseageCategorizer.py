@@ -17,6 +17,8 @@ class ChatMesseageCategorizer:
             
             if ChatDataExtractor.is_chatline_valid(line):
                 student_name = ChatDataExtractor.message_author(line)
+                if not ChatDataExtractor.is_author_valid(student_name):
+                    continue
                 if not student_name in self.__chat_professor.student_name_list():
                     student = Student(student_name)
                     self.__chat_professor.add_student(student)

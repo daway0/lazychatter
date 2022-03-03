@@ -34,3 +34,6 @@ class Student:
         for key in self.__messages:
             number += len(self.__messages[key])
         return number
+    
+    def number_all_classes(self) -> int:
+        return len (self.__messages)

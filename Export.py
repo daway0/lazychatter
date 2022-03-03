@@ -31,7 +31,7 @@ class DataExport:
             reshaped_text = arabic_reshaper.reshape(name)
             artext = get_display(reshaped_text)
             reshaped_names_list.append(
-                f'{artext} [{professor.get_student(name).number_all_chats()}]')
+                f'{artext} [{professor.get_student(name).number_all_chats()} in {professor.get_student(name).number_all_classes()}]')
 
         number_chats_list = []
         all_chats = 0
@@ -66,7 +66,7 @@ class DataExport:
             reshaped_text = arabic_reshaper.reshape(name)
             artext = get_display(reshaped_text)
             reshaped_names_list.append(
-                f'{artext} [{professor.get_student(name).number_all_chats()}]')
+                f'{artext} [{professor.get_student(name).number_all_chats()} in {professor.get_student(name).number_all_classes()}]')
 
         number_chats_list = []
         all_chats = 0
