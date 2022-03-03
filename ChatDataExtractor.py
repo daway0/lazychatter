@@ -17,25 +17,33 @@ class ChatDataExtractor():
 
     @staticmethod
     # for unstructured line that seprate with \n
-    def is_chatline_valid(line :str) -> bool:
-        if line[0] == '[' and line[3] ==':' and line[6] == ']':
+    def is_chatline_valid(line: str) -> bool:
+        if line[0] == '[' and line[3] == ':' and line[6] == ']':
             return True
-        return False 
-        
+        return False
+
     @staticmethod
     def message_author(line: str) -> str:
         try:
             cursor_end_location = line.index(': ')
             return line[8:cursor_end_location]
         except:
-            pass
+            return ''
+    
+    @staticmethod
+    def is_author_valid(name: str) -> bool:
+        if name == '':
+            return False
+        return True
 
     @staticmethod
     def chatters(chat: Chat) -> set:
         chatters = set()
         for line in chat.chat_lines:
             if ChatDataExtractor.is_chatline_valid(line):
-                chatters.add(ChatDataExtractor.message_author(line))
+                author = ChatDataExtractor.message_author(line)
+                if ChatDataExtractor.is_author_valid(author):
+                    chatters.add(author)
         return chatters
 
     @staticmethod
@@ -59,5 +67,5 @@ class ChatDataExtractor():
         for date in dates:
             column_number_date_dict[col] = date
             col += 1
-            #{1:'2022-6-6'}
+            # {1:'2022-6-6'}
         return column_number_date_dict
