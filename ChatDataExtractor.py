@@ -4,7 +4,7 @@ from Chat import Chat
 class ChatDataExtractor():
 
     @staticmethod
-    def __message_time(line: str) -> str:
+    def message_time(line: str) -> str:
         return line[1:6]
 
     @staticmethod
@@ -15,6 +15,13 @@ class ChatDataExtractor():
         except:
             pass
 
+    @staticmethod
+    # for unstructured line that seprate with \n
+    def is_chatline_valid(line :str) -> bool:
+        if line[0] == '[' and line[3] ==':' and line[6] == ']':
+            return True
+        return False 
+        
     @staticmethod
     def message_author(line: str) -> str:
         try:
@@ -27,12 +34,13 @@ class ChatDataExtractor():
     def chatters(chat: Chat) -> set:
         chatters = set()
         for line in chat.chat_lines:
-            chatters.add(ChatDataExtractor.message_author(line))
+            if ChatDataExtractor.is_chatline_valid(line):
+                chatters.add(ChatDataExtractor.message_author(line))
         return chatters
 
     @staticmethod
     def text_with_time(line: str) -> str:
-        time = ChatDataExtractor.__message_time(line)
+        time = ChatDataExtractor.message_time(line)
         message = ChatDataExtractor.__message_text(line)
         return f'[{time}] {message}'
 
