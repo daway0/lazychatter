@@ -1,4 +1,4 @@
-from Student import Student
+from student import Student
 
 
 class Professor:

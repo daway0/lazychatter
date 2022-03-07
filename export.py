@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from bidi.algorithm import get_display
 import arabic_reshaper
-from Professor import Professor
+from professor import Professor
 
 
 class DataExport:
@@ -16,7 +16,7 @@ class DataExport:
             student = professor.get_student(student_name)
             with open(f'./{directory}/{student_name}.txt', 'w', encoding='utf-8') as file:
                 for line in student.export_chats():
-                    file.write(line)
+                    file.write(f'{line}\n')
 
     @staticmethod
     def student_charts(directory: str, professor: Professor):
