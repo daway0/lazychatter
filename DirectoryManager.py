@@ -13,19 +13,14 @@ class DirectoryManager:
 
     @staticmethod
     def make_directories(directories_name_list: list) -> None:
-        
         for name in directories_name_list:
             DirectoryManager.__remove_directory(name)
             os.mkdir(f'./{name}')
 
-        
-
     @staticmethod
     def import_chat_files() -> list:
-        files = os.listdir()
         chat_files = []
-
-        for file in files:
+        for file in os.listdir():
             if not '[public-chat]' in file:
                 continue
             chat_files.append(file)

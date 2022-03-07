@@ -1,7 +1,8 @@
-from Chat import Chat
-from ChatDataExtractor import ChatDataExtractor
-from Professor import Professor
-from Student import Student
+from chat import Chat
+from chat_info_extractor import ChatInfoExtractor
+from message_data_extractor import MessageDataExtractor
+from professor import Professor
+from student import Student
 
 
 class ChatMesseageCategorizer:
@@ -11,26 +12,18 @@ class ChatMesseageCategorizer:
         self.__chat_professor = professor
 
     def categorize(self) -> None:
-        for line in self.__chat.chat_lines:
-            if line == '' or line == '\n':
-                continue
-            
-            if ChatDataExtractor.is_chatline_valid(line):
-                student_name = ChatDataExtractor.message_author(line)
-                if not ChatDataExtractor.is_author_valid(student_name):
-                    continue
-                if not student_name in self.__chat_professor.student_name_list():
-                    student = Student(student_name)
-                    self.__chat_professor.add_student(student)
+        for line in self.__chat.lines:
 
-                text = ChatDataExtractor.text_with_time(line)
-                self.__chat_professor.get_student(student_name).add_message(
-                    text, self.__chat.class_date())
+            student_name = MessageDataExtractor.message_author(line)
 
-                previous_chat_author = student_name
-                previous_message_time = ChatDataExtractor.message_time(line)
-                
-            else:
-                unstructured_text_message = f'[{previous_message_time}]  {line}'
-                self.__chat_professor.get_student(previous_chat_author).add_message(
-                    unstructured_text_message, self.__chat.class_date())
+            if not student_name in self.__chat_professor.student_name_list():
+                student = Student(student_name)
+                self.__chat_professor.add_student(student)
+
+            time = MessageDataExtractor.message_time(line)
+            text = MessageDataExtractor.message_text(line)
+            message = f'{time} {text}'
+            student = self.__chat_professor.get_student(student_name)
+            class_date = ChatInfoExtractor.class_date(self.__chat)
+
+            student.add_message(message, class_date)
