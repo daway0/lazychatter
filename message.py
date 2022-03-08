@@ -6,7 +6,7 @@ class Message:
 
         try:
             if line[0] == '[' and line[6] == ']':
-                self.__time = line[0:7]
+                self.__time = line[1:6]
         except:
             pass
         try:
