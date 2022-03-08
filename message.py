@@ -4,13 +4,22 @@ class Message:
         self.__author: str = None
         self.__msg: str = None
 
-        self.__time = line[0:7]
+        try:
+            if line[0] == '[' and line[6] == ']':
+                self.__time = line[0:7]
+        except:
+            pass
+        try:
+            cursor_end_location = line.index(': ')
+            self.__author = line[8:cursor_end_location]
+        except:
+            pass
 
-        cursor_end_location = line.index(': ')
-        self.__author = line[8:cursor_end_location]
-
-        cursor_start_location = line.index(': ')
-        self.__msg = line[cursor_start_location+2:]
+        try:
+            cursor_start_location = line.index(': ')
+            self.__msg = line[cursor_start_location+2:]
+        except:
+            pass
 
     def __str__(self) -> str:
         return f'{self.__time} {self.__author}: {self.__msg}'

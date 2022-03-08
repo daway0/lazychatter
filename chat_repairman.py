@@ -1,42 +1,47 @@
-from chat import Chat
-from message_data_extractor import MessageDataExtractor
+from message import Message
 
 
 class ChatRepairman:
-    def __init__(self, chat: Chat):
-        self.__chat = chat
-        self.__repaired_chat = Chat(chat.file_name)
+    def __init__(self, lines: list[str]):
+        self.__lines = lines
 
-    def repair(self):
-        self.__repaired_chat.lines = []
-
-        for line in self.__chat.lines:
+    def repair(self) -> list[Message]:
+        msg_list = []
+        for line in self.__lines:
             line = ChatRepairman.__remove_break(line)
             line = ChatRepairman.__remove_listenonly(line)
 
             if ChatRepairman.__is_empty_message(line):
                 continue
-            if ChatRepairman.__is_valid_chatline(line):
-                self.__repaired_chat.lines.append(line)
-                current_author = MessageDataExtractor.message_author(line)
-                current_time = MessageDataExtractor.message_time(line)
+            if ChatRepairman.__is_structured(line):
+
+                msg = Message(line)
+                msg_list.append(msg)
+                current_author = msg.author()
+                current_time = msg.time()
                 continue
 
             structured_message = f'{current_time} {current_author}: {line}'
-            self.__repaired_chat.lines.append(structured_message)
+            strd_msg = Message(structured_message)
+            msg_list.append(strd_msg)
 
-        return self.__repaired_chat
+        return msg_list
 
     @classmethod
-    def __is_valid_chatline(cls, line: str):
-        if line[0] == '[' and line[3] == ':' and line[6] == ']':
-            return True
-        return False
+    def __is_structured(cls, line: str):
+        msg = Message(line)
+
+        if msg.time() == None:
+            return False
+        return True
     # valid chatline starts with:[00:00] bla bla bla
 
     @classmethod
     def __is_empty_message(cls, line: str):
-        if line.replace(f'{MessageDataExtractor.message_time(line)} ', '') == '':
+        if line.strip() == '':
+            return True
+        msg = Message(line)
+        if msg.time() != None and msg.author() == None and msg.message() == None:
             return True
         return False
     # empty msg:[00:00] [empty]

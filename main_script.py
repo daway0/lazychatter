@@ -4,14 +4,12 @@ from directory_manager import DirectoryManager
 from message_categorizer import ChatMesseageCategorizer
 from professor import Professor
 import constant
-from chat_repairman import ChatRepairman
 
 
 def categorize_all_chat_messages(files: list, professor: Professor) -> None:
     for file_name in files:
         chat = Chat(file_name)
-        repaired_chat = ChatRepairman(chat).repair()
-        ChatMesseageCategorizer(repaired_chat, professor).categorize()
+        ChatMesseageCategorizer(chat, professor).categorize()
 
 
 def main() -> None:
@@ -31,7 +29,4 @@ def main() -> None:
 
 
 if __name__ == '__main__':
-    try:
-        main()
-    except:
-        print('script crashed!')
+    main()
