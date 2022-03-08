@@ -21,7 +21,7 @@ class ChatRepairman:
                 current_time = msg.time()
                 continue
 
-            structured_message = f'{current_time} {current_author}: {line}'
+            structured_message = f'[{current_time}] {current_author}: {line}'
             strd_msg = Message(structured_message)
             msg_list.append(strd_msg)
 

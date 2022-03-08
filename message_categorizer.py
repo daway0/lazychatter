@@ -21,7 +21,7 @@ class ChatMesseageCategorizer:
 
             time = msg.time()
             text = msg.message()
-            message = f'{time} {text}'
+            message = f'[{time}] {text}'
             student = self.__chat_professor.get_student(student_name)
             class_date = ChatInfoExtractor.class_date(self.__chat)
 
