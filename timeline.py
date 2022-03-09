@@ -23,7 +23,7 @@ class Timeline:
         hour, min = self.__hour_min_tuple(self.__start)
         end_hour, end_min = self.__hour_min_tuple(self.__end)
 
-        while not (hour == end_hour and min == end_min):
+        while not (hour == end_hour and min == end_min+1):
             if min == 60:
                 min = 0
                 hour += 1
