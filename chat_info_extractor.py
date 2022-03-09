@@ -1,4 +1,5 @@
 from chat import Chat
+from message import Message
 
 
 class ChatInfoExtractor:
@@ -16,3 +17,9 @@ class ChatInfoExtractor:
         cursor_start_location = file_name.index('-')+1
         curosr_stop_location = file_name.index('[')
         return file_name[cursor_start_location:curosr_stop_location]
+
+    @staticmethod
+    def start_end(chat: Chat) -> tuple:
+        first_msg = chat.messages[0]
+        last_msg = chat.messages[-1]
+        return (first_msg.time(), last_msg.time())

@@ -2,6 +2,7 @@ class Student:
     def __init__(self, name) -> None:
         self.__name = name
         self.__messages = {}
+        self.__messages_in_time = {}
 
     def name(self):
         return self.__name
@@ -37,3 +38,8 @@ class Student:
 
     def number_all_classes(self) -> int:
         return len(self.__messages)
+
+    def msgpp_in_time(self, time: str):
+        if not time in self.__messages_in_time.keys():
+            self.__messages_in_time[time] = 0
+        self.__messages_in_time[time] += 1
