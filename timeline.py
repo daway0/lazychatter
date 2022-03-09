@@ -24,11 +24,11 @@ class Timeline:
         end_hour, end_min = self.__hour_min_tuple(self.__end)
 
         while not (hour == end_hour and min == end_min):
-            min += 1
             if min == 60:
                 min = 0
                 hour += 1
             timeline.append(self.__t_str_maker(hour, min))
+            min += 1
         return timeline
 
     def __hour_min_tuple(self, time: str) -> tuple:
