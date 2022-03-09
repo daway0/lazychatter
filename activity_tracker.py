@@ -3,7 +3,7 @@ from professor import Professor
 
 class ActivityTracker():
     @staticmethod
-    def all_student_activity(professor: Professor, timeline: list[str]) -> dict:
+    def all_students_activity(professor: Professor, timeline: list[str]) -> dict:
         timeline_msg_dict = {}
         # {'16:20': 5,
         #  '16:21': 1,
