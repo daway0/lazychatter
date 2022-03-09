@@ -45,6 +45,6 @@ class Student:
         self.__messages_in_time[time] += 1
 
     def msgs_in_time(self, time: str) -> int:
-        if not time in self.__messages.keys():
+        if not time in self.__messages_in_time.keys():
             return 0
-        return self.__messages[time]
+        return self.__messages_in_time[time]
