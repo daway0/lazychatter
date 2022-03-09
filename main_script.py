@@ -4,6 +4,8 @@ from directory_manager import DirectoryManager
 from message_categorizer import ChatMesseageCategorizer
 from professor import Professor
 import constant
+from timeline import Timeline
+from activity_tracker import ActivityTracker
 
 
 def categorize_all_chat_messages(files: list, professor: Professor) -> None:
@@ -20,8 +22,15 @@ def main() -> None:
     if not files:
         raise Exception('Chat files not found!')
 
+    chats = []
+    for file_name in files:
+        chats.append(Chat(file_name))
+
     professor = Professor()
+    timeline = Timeline(chats).create()
     categorize_all_chat_messages(files, professor)
+    all_act_dict = ActivityTracker.all_students_activity(professor, timeline)
+    print(all_act_dict)
     DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
                              professor)
     DataExport.pieplot(professor)
