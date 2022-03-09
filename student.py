@@ -39,12 +39,18 @@ class Student:
     def number_all_classes(self) -> int:
         return len(self.__messages)
 
-    def msgpp_in_time(self, time: str):
-        if not time in self.__messages_in_time.keys():
-            self.__messages_in_time[time] = 0
-        self.__messages_in_time[time] += 1
+    def msgpp_in_time(self, time: str, date: str):
+        if not date in self.__messages_in_time.keys():
+            self.__messages_in_time[date] = {}
+
+        if not time in self.__messages_in_time[date].keys():
+            self.__messages_in_time[date][time] = 0
+        self.__messages_in_time[date][time] += 1
 
     def msgs_in_time(self, time: str) -> int:
-        if not time in self.__messages_in_time.keys():
-            return 0
-        return self.__messages_in_time[time]
+        msgs = 0
+        for date in self.__messages_in_time.keys():
+            if time in self.__messages_in_time[date].keys():
+                msgs += self.__messages_in_time[date][time]
+
+        return msgs
