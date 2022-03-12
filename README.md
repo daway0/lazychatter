@@ -1,5 +1,8 @@
-# Lazy Chatter Detector
 
+# NEW FEATURE IS COMMING !!!
+![activity tracker](https://s22.picofile.com/file/8448316718/activity.png)
+
+# Lazy Chatter Detector
 **It can detect Lazy Chatters** 
 based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
 
