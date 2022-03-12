@@ -1,6 +1,8 @@
 
 # NEW FEATURE IS COMMING !!!
 ![activity tracker](https://s22.picofile.com/file/8448316718/activity.png)
+![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
+                     
 
 # Lazy Chatter Detector
 **It can detect Lazy Chatters** 
