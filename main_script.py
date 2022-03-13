@@ -41,7 +41,7 @@ def main() -> None:
     for date in chat_dates:
         data = ActivityTracker.all_students_activity(professor, timeline, date)
         act_dict[date] = data
-    ClassActivityDrawer(act_dict, timeline).draw()
+
     DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
                              professor)
 
@@ -51,7 +51,11 @@ def main() -> None:
         print('No internet connection')
     DataExport.pieplot(professor)
     DataExport.hbarplot(professor)
+    ClassActivityDrawer(act_dict, timeline).draw()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except:
+        print('script crashed!')
