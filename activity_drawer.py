@@ -62,6 +62,7 @@ class ClassActivityDrawer:
                 opacity = 0
             y += length
         x = 0
+        db.rectangle((0, y, width, y), fill='white')
         y += int(length/3)
         for time in self.__timeline:
             if self.__timeline.index(time) % 10 == 0:
