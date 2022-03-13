@@ -8,6 +8,7 @@ from professor import Professor
 import constant
 from timeline import Timeline
 from activity_tracker import ActivityTracker
+from chat_collector import collect_data
 
 
 def categorize_all_chat_messages(files: list, professor: Professor) -> None:
@@ -41,10 +42,15 @@ def main() -> None:
         data = ActivityTracker.all_students_activity(professor, timeline, date)
         act_dict[date] = data
     ClassActivityDrawer(act_dict, timeline).draw()
-    # DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
-    #                          professor)
-    # DataExport.pieplot(professor)
-    # DataExport.hbarplot(professor)
+    DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
+                             professor)
+
+    try:
+        collect_data()
+    except:
+        print('No internet connection')
+    DataExport.pieplot(professor)
+    DataExport.hbarplot(professor)
 
 
 if __name__ == '__main__':
