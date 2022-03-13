@@ -26,4 +26,4 @@ class ChatMesseageCategorizer:
             class_date = ChatInfoExtractor.class_date(self.__chat)
 
             student.add_message(message, class_date)
-            student.msgpp_in_time(time)
+            student.msgpp_in_time(time, class_date)
