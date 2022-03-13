@@ -1,4 +1,6 @@
+from activity_drawer import ClassActivityDrawer
 from chat import Chat
+from chat_info_extractor import ChatInfoExtractor
 from export import DataExport
 from directory_manager import DirectoryManager
 from message_categorizer import ChatMesseageCategorizer
@@ -29,12 +31,20 @@ def main() -> None:
     professor = Professor()
     timeline = Timeline(chats).create()
     categorize_all_chat_messages(files, professor)
-    all_act_dict = ActivityTracker.all_students_activity(professor, timeline)
-    print(all_act_dict)
-    DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
-                             professor)
-    DataExport.pieplot(professor)
-    DataExport.hbarplot(professor)
+
+    chat_dates = []
+    for chat in chats:
+        chat_dates.append(ChatInfoExtractor.class_date(chat))
+
+    act_dict = {}
+    for date in chat_dates:
+        data = ActivityTracker.all_students_activity(professor, timeline, date)
+        act_dict[date] = data
+    ClassActivityDrawer(act_dict, timeline).draw()
+    # DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
+    #                          professor)
+    # DataExport.pieplot(professor)
+    # DataExport.hbarplot(professor)
 
 
 if __name__ == '__main__':
