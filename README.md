@@ -1,6 +1,5 @@
 
 # Tracking class activity behavior
-- IS COMMING...
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
                      
 
