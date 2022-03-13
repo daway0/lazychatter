@@ -1,6 +1,9 @@
 
 # Tracking class activity behavior
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
+# acceptable activity vs non acceptable 
+![good](https://s22.picofile.com/file/8448341534/goodact.png)
+![bad](https://s22.picofile.com/file/8448341426/badactivity.png)
                      
 
 # Lazy Chatter Detector
