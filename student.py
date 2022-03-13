@@ -47,10 +47,10 @@ class Student:
             self.__messages_in_time[date][time] = 0
         self.__messages_in_time[date][time] += 1
 
-    def msgs_in_time(self, time: str) -> int:
+    def msgs_in_time(self, time: str, class_date: str) -> int:
         msgs = 0
-        for date in self.__messages_in_time.keys():
-            if time in self.__messages_in_time[date].keys():
-                msgs += self.__messages_in_time[date][time]
+        if class_date in self.__messages_in_time.keys():
+            if time in self.__messages_in_time[class_date].keys():
+                msgs += self.__messages_in_time[class_date][time]
 
         return msgs
