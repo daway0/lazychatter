@@ -1,14 +1,15 @@
 
-# NEW FEATURE IS COMMING !!!
-![activity tracker](https://s22.picofile.com/file/8448316718/activity.png)
+# Tracking class activity behavior
+- IS COMMING...
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
                      
 
 # Lazy Chatter Detector
 **It can detect Lazy Chatters** 
 based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
-
+# Bar plot
 ![Bar Plot](https://s22.picofile.com/file/8447995900/tebar.png)
+# Pie plot
 ![Pie Plot](https://s23.picofile.com/file/8447995918/tepie.png)
 
 # Quick Start
@@ -23,7 +24,7 @@ based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in
 
 **Student Chats:** All student chats store in `./std_chats` in `.txt` format.
 
-# Do NOT...
+# DO NOT...
 
 1. change name of the chats that you download from daan platform
 2. put different types of chat file together, this does not cause any error, but it is not logically correct
