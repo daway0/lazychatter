@@ -70,9 +70,8 @@ class ClassActivityDrawer:
             if self.__timeline.index(time) == len(self.__timeline)-1:
                 db.text((x-length, y), f"{time[3:]}'")
             x += length
-
-        board.show()
         board.save('activity.png')
+        board.show()
 
     def __cal_opacity(self, date):
         max = 0
