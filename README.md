@@ -1,7 +1,7 @@
 
 # Lazy Chatter Detector
 **It can detect Lazy Chatters** 
-based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
+based on [Daan platform](https://daan.ir/) chats
 # Tracking class activity behavior
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
 # acceptable activity vs non acceptable activities
@@ -18,14 +18,18 @@ based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in
 # Quick Start
 0. [Watch the guide on YouTube](https://youtu.be/pPJ-NBAdNGA)
 1. Install script dependencies: `pip install -r requirements.txt`
-2. Put **chat files (or a chat)** in `lazy_chatter_detector` directory (next to other `.py` files)
-3. Run `MainScript.py`
+2. Put **chat files (or a chat)** next to other `.py` files (you can use `./chat-samples` chats)
+3. Run `main-script.py`
 
-# Usage
+# Features
 
-**Plots:** After executing `MainScript.py`, script will show you a **pie** and a **bar** plots in a row (with matplotlib GUI).
+**Plots:** After executing `main-script.py`, script will show you a **pie** ,a **bar** plots in a row (with matplotlib GUI). PDF-export option is available for best quality.
 
-**Student Chats:** All student chats store in `./std_chats` in `.txt` format.
+**Class activity behavoir:** After closing plot windows, you will see a picture that describes class activity behavior. The picture will be saved automatically as `activity.png`
+
+`dark red ----> incresing activity ----> light red`
+
+**Student Chats:** All student chats will be store in `./std_chats` in `.txt` format.
 
 # DO NOT...
 
