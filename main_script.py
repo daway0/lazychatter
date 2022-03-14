@@ -44,14 +44,18 @@ def main() -> None:
 
     DataExport.student_chats(constant.Directory.STUDENT_CHAT_DIRECTORY,
                              professor)
+    DataExport.pieplot(professor)
+    DataExport.hbarplot(professor)
+    cad = ClassActivityDrawer(act_dict, timeline)
+    cad.draw()
+    cad.draw(detail=True)
 
     try:
         collect_data()
     except:
-        print('No internet connection')
-    DataExport.pieplot(professor)
-    DataExport.hbarplot(professor)
-    ClassActivityDrawer(act_dict, timeline).draw()
+        print('No internet or Poor connection, \n '
+              'Turn off your VPN if it alreay connected, \n'
+              'and execute the scrtip again :)')
 
 
 if __name__ == '__main__':
