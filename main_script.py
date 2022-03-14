@@ -1,4 +1,4 @@
-from activity_drawer import ClassActivityDrawer
+from activity_drawer import ClassActivityDrawer, StudentActivityDrawer
 from chat import Chat
 from chat_info_extractor import ChatInfoExtractor
 from export import DataExport
@@ -47,8 +47,11 @@ def main() -> None:
     DataExport.pieplot(professor)
     DataExport.hbarplot(professor)
     cad = ClassActivityDrawer(act_dict, timeline)
+    sad = StudentActivityDrawer(professor, timeline)
     cad.draw()
     cad.draw(detail=True)
+    sad.draw()
+    sad.draw(detail=True)
 
     try:
         collect_data()
@@ -61,5 +64,7 @@ def main() -> None:
 if __name__ == '__main__':
     try:
         main()
+    except FileExistsError:
+        print('Close all .txt files and execute main-script.py again')
     except:
         print('script crashed!')
