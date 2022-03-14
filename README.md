@@ -1,14 +1,15 @@
 
+# Lazy Chatter Detector
+**It can detect Lazy Chatters** 
+based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
 # Tracking class activity behavior
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
-# acceptable activity vs non acceptable 
+# acceptable activity vs non acceptable activities
 ![good](https://s22.picofile.com/file/8448341534/goodact.png)
 ![bad](https://s22.picofile.com/file/8448341426/badactivity.png)
                      
 
-# Lazy Chatter Detector
-**It can detect Lazy Chatters** 
-based on [Daan platform](https://daan.ir/) chats:  , You can see chat samples in the `./chat-samples` directory.
+
 # Bar plot
 ![Bar Plot](https://s22.picofile.com/file/8447995900/tebar.png)
 # Pie plot
