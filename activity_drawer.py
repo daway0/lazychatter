@@ -35,7 +35,7 @@ class ClassActivityDrawer:
         self.__opacity_ratio = None
         self.__timeline = timeline
 
-    def draw(self):
+    def draw(self, detail: bool = False):
         width = 1920
         length = width / len(self.__timeline)
         height = int(length * (len(self.__data.keys())+1))
@@ -57,7 +57,9 @@ class ClassActivityDrawer:
                     opacity = self.__data[date][time] * self.__opacity_ratio
                     sq = Square(length, (opacity, 0, 0))
                     sq.draw(x, y, db)
-                    db.text((x, y), f'{self.__data[date][time]}', fill='white')
+                    if detail:
+                        db.text(
+                            (x, y), f'{self.__data[date][time]}', fill='white')
                 x += length
                 opacity = 0
             y += length
@@ -70,7 +72,10 @@ class ClassActivityDrawer:
             if self.__timeline.index(time) == len(self.__timeline)-1:
                 db.text((x-length, y), f"{time[3:]}'")
             x += length
-        board.save('activity.png')
+        if detail:
+            board.save('activity-detail.png')
+        else:
+            board.save('activity.png')
         board.show()
 
     def __cal_opacity(self, date):
