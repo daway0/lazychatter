@@ -131,7 +131,7 @@ class StudentActivityDrawer:
             db.text((width+indent, y), f'{line_number}<', fill='yellow')
             db.text((int((width_indent)/2), y),
                     f'<{line_number}>', fill=(100, 100, 100))
-            db.rectangle((indent, y, width, y), fill=(40, 40, 40))
+            db.rectangle((indent, y, width+indent, y), fill=(40, 40, 40))
             y += length
         x = indent
         db.rectangle((indent, y, width+indent, y), fill='white')
