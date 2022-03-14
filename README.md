@@ -3,7 +3,7 @@
 **It can detect Lazy Chatters** 
 based on [Daan platform](https://daan.ir/) chats
 # Tracking Students activity behaviour (students of a class)
-![activity tracker](https://s23.picofile.com/file/8448378034/students_activity_detail.png)
+![activity tracker](https://s23.picofile.com/file/8448381334/ezgif_com_gif_maker.gif)
 **comming soon...**
 # Tracking class activity behaviour
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
