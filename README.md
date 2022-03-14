@@ -4,6 +4,7 @@
 based on [Daan platform](https://daan.ir/) chats
 # Tracking Students activity (students of a class)
 ![activity tracker](https://s23.picofile.com/file/8448378034/students_activity_detail.png)
+**comming soon...**
 # Tracking class activity behavior
 ![activity tracker](https://s23.picofile.com/file/8448317118/activity.png)
 # acceptable vs non acceptable (with detail)
