@@ -25,7 +25,7 @@ based on [Daan platform](https://daan.ir/) chats
 
 **Plots:** After executing `main-script.py`, script will show you a **pie** ,a **bar** plots in a row (with matplotlib GUI). PDF-export option is available for best quality.
 
-**Class activity behavoir:** After closing plot windows, you will see a picture that describes class activity behavior. The picture will be saved automatically as `activity.png`
+**Class activity behavoir:** After closing plot windows, you will see  pictures that describe class activity behavior(detailed and non-detailed). The pictures will be saved automatically as `activity.png`و `activity-detail.png`
 
 `dark red ----> incresing activity ----> light red`
 
