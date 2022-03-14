@@ -13,7 +13,7 @@ class ActivityTracker():
             number_msgs = 0
             for std_name in professor.student_name_list():
                 student = professor.get_student(std_name)
-                number_msgs += student.msgs_in_time(time, class_date)
+                number_msgs += student.msgs_in_time_date(time, class_date)
             timeline_msg_dict[time] = number_msgs
 
         return timeline_msg_dict
