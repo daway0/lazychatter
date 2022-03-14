@@ -2,7 +2,7 @@
 # Lazy Chatter Detector
 **It can detect Lazy Chatters** 
 based on [Daan platform](https://daan.ir/) chats
-# Tracking Students activity (students of a class)
+# Tracking Students activity behaviour (students of a class)
 ![activity tracker](https://s23.picofile.com/file/8448378034/students_activity_detail.png)
 **comming soon...**
 # Tracking class activity behaviour
