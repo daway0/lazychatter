@@ -47,10 +47,33 @@ class Student:
             self.__messages_in_time[date][time] = 0
         self.__messages_in_time[date][time] += 1
 
-    def msgs_in_time(self, time: str, class_date: str) -> int:
+    def msgs_in_time_date(self, time: str, class_date: str) -> int:
         msgs = 0
         if class_date in self.__messages_in_time.keys():
             if time in self.__messages_in_time[class_date].keys():
                 msgs += self.__messages_in_time[class_date][time]
 
         return msgs
+
+    def msgs_in_time(self, time: str) -> int:
+        msgs = 0
+        for date in self.__messages_in_time.keys():
+            if time in self.__messages_in_time[date].keys():
+                msgs += self.__messages_in_time[date][time]
+
+        return msgs
+
+    def max_msgs_in_min(self) -> int:
+        max = 0
+        merged_dict = {}
+        for date in self.__messages_in_time:
+            for time in self.__messages_in_time[date]:
+                if not time in merged_dict.keys():
+                    merged_dict[time] = self.__messages_in_time[date][time]
+                else:
+                    merged_dict[time] += self.__messages_in_time[date][time]
+
+        for time in merged_dict:
+            if merged_dict[time] > max:
+                max = merged_dict[time]
+        return max
